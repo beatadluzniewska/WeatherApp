@@ -1,0 +1,79 @@
+body {
+    font-family: "Lato", sans-serif;
+    font-size: larger;
+}
+h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(106, 133, 50);
+}
+li {
+    list-style: none;
+}
+col {
+    text-align: center;
+}
+ul.upcoming {
+    padding-left: 0;
+}
+.search-list {
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+.time-switch {
+    display: inline-block;
+    margin-right: 20px;
+}
+.fa-solid.fa-cloud-sun.weather-now {
+    font-size: 100px;
+    top: 40px;
+    color: rgb(129, 129, 129);
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card.wrapper {
+    margin: 50px 0;
+    padding: 30px 50px 50px 50px;
+    width: 1000px;
+    border: 4px solid rgb(106, 133, 50);
+    border-radius: 0;
+}
+.card.upcoming {
+    margin-top: 40px;
+    border: 2px solid rgb(106, 133, 50);
+    background: rgba(194, 211, 184, 0.279);
+    border-radius: 0;
+}
+
+.fa-solid.fa-cloud-sun.day-after {
+    font-size: 40px;
+    color: rgb(95, 95, 95);
+}
+.form-check-label {
+    position: relative;
+    top: 8px;
+    left: 3px;
+}
+.form-check-input:checked {
+    background-color: rgb(149, 149, 149);
+    border-color: rgb(149, 149, 149);
+}
+.row.forecast {
+    padding: 30px;
+}
+.atmosphere {
+    margin-top: 20px;
+}
+
+.upcoming {
+    text-align: center;
+    line-height: 60px;
+}
+.upcoming-days {
+    font-weight: bold;
+    font-size: 25px;
+}
+.temperature {
+    font-size: 25px;
+}
