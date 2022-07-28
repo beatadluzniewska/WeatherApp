@@ -1,54 +1,77 @@
-let weather = {
-    paris: {
-        temp: 19.7,
-        humidity: 80,
-    },
-    tokyo: {
-        temp: 17.3,
-        humidity: 50,
-    },
-    lisbon: {
-        temp: 30.2,
-        humidity: 20,
-    },
-    "san francisco": {
-        temp: 20.9,
-        humidity: 100,
-    },
-    oslo: {
-        temp: -5,
-        humidity: 20,
-    },
-};
+let currentTime = new Date();
+function displayDate(date) {
+    let days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+    let currentDay = days[date.getDay()];
+    let months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
+    let currentMonth = months[date.getMonth()];
+    let currentDate = date.getDate();
+    let todaysDate = `${currentDay}, ${currentMonth} ${currentDate}`;
+    let displayedDate = document.querySelector("#day-date");
+    displayedDate.innerHTML = todaysDate;
 
-function showForecast() {
-    let city = prompt("Enter a city");
-    city = city.toLowerCase();
-    city = city.trim();
-    if (city === "paris") {
-        alert(
-            `It is currently ${weather["paris"].temp} in Paris with a humidity of ${weather["paris"].humidity}`
-        );
-    } else if (city === "tokyo") {
-        alert(
-            `It is currently ${weather["tokyo"].temp} in Tokyo with a humidity of ${weather["tokyo"].humidity}`
-        );
-    } else if (city === "lisbon") {
-        alert(
-            `It is currently ${weather["lisbon"].temp} in Lisbon with a humidity of ${weather["lisbon"].humidity}`
-        );
-    } else if (city === "san francisco") {
-        alert(
-            `It is currently ${weather["san francisco"].temp} in San Francisco with a humidity of ${weather["san francisco"].humidity}`
-        );
-    } else if (city === "oslo") {
-        alert(
-            `It is currently ${weather["oslo"].temp} in Oslo with a humidity of ${weather["oslo"].humidity}`
-        );
+    let currentHour = date.getHours();
+    console.log(currentHour);
+    let currentMinutes = date.getMinutes();
+    let realTime = `${currentHour}:${currentMinutes}`;
+    let displayedHour = document.querySelector("#time-now");
+    displayedHour.innerHTML = realTime;
+}
+displayDate(currentTime);
+
+function weather(event) {
+    event.preventDefault();
+    let weatherInput = document.querySelector("#input-city");
+    weatherInput.value = weatherInput.value.replace(/\s/g, "");
+    let city = document.querySelector("#current-city");
+    console.log(weatherInput.value.charAt(0).toUpperCase());
+    console.log(weatherInput.value.slice(1).toLowerCase());
+    if (weatherInput.value) {
+        city.innerHTML = `${weatherInput.value}`;
+        city.innerHTML =
+            weatherInput.value.charAt(0).toUpperCase() +
+            weatherInput.value.slice(1).toLowerCase();
     } else {
-        alert(
-            `Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+sydney`
-        );
+        city.innerHTML = null;
     }
 }
-showForecast();
+
+let form = document.querySelector("#city-engine");
+form.addEventListener("submit", weather);
+
+function fahrenheitCelsius(event) {
+    event.preventDefault();
+    let cel = document.querySelector(".temp-now");
+    cel.innerHTML = " 22°C";
+}
+let convert1 = document.querySelector("#celsius");
+convert1.addEventListener("click", fahrenheitCelsius);
+
+function celsiusFahrenheit(event) {
+    event.preventDefault();
+    let fahr = document.querySelector(".temp-now");
+    fahr.innerHTML = " 71,6°F";
+}
+
+let convert2 = document.querySelector("#fahrenheit");
+convert2.addEventListener("click", celsiusFahrenheit);

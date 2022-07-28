@@ -20,15 +20,15 @@
     <div class="card wrapper">
       <ul>
         <li class="search-list">
-          <form class="search-city">
-            <input for="search" placeholder="search city">
+          <form class="search-city" id="city-engine">
+            <input type="text" for="search" placeholder="search city" id="input-city">
             <input type="submit" value="search">
           </form>
         </li>
         <li class="search-list">
           <form class="choose-date">
-            <input for="search" placeholder="DD/MM/YYYY, 00:00">
-            <input type="submit" value="go">
+            <input type="date" for="search">
+            <input type="submit" value="search">
           </form>
         </li>
       </ul>
@@ -43,19 +43,19 @@
             <div class="col-6">
               <ul>
 
-                <li class="time-switch">Now, 12:23 </li>
+                <li class="time-switch">Now, <span id="time-now">12:23</span></li>
                 <li class="time-switch">
-                  <div role="switch">°C
+                  <div role="switch"><a href="#" id="celsius">°C</a>
                     <label class="form-check-label" for="flexSwitchCheckDefault">
                       <span class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch"
                           id="flexSwitchCheckDefault">
-                      </span></label>°F
+                      </span></label><a href="#" id="fahrenheit">°F</a>
                   </div>
                 </li>
                 <li>
-                  <h1>Paris 22°C</h1>
+                  <h1><span id="current-city">Paris</span><span id="temperature-now" class="temp-now"> 22°C</span></h1>
                 </li>
-                <li>Today, Thursday, July 14th</li>
+                <li><span id="day-date">Thursday, July 14th</span></li>
               </ul>
             </div>
             <div class="col-6">
