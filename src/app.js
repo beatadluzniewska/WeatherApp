@@ -42,7 +42,7 @@ displayDate(currentTime);
 function weather(event) {
     event.preventDefault();
     let weatherInput = document.querySelector("#input-city");
-    weatherInput.value = weatherInput.value.replace(/\s/g, "");
+    weatherInput.value = weatherInput.value.replace(/\s/g, ""); //week4
     let city = document.querySelector("#current-city");
     console.log(weatherInput.value.charAt(0).toUpperCase());
     console.log(weatherInput.value.slice(1).toLowerCase());
