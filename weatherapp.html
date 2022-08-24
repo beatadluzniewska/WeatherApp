@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
@@ -26,10 +27,7 @@
           </form>
         </li>
         <li class="search-list">
-          <form class="choose-date">
-            <input type="date" for="search">
-            <input type="submit" value="search">
-          </form>
+          <button id="current-location"> current location</button>
         </li>
       </ul>
 
@@ -82,7 +80,7 @@
               <ul>
                 <li>35 °C</li>
                 <li>21 °C</li>
-                <li>6</li>
+                <li>8</li>
               </ul>
 
             </div>
