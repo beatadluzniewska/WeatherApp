@@ -3,9 +3,12 @@ body {
     font-size: larger;
 }
 h1 {
-    font-size: 50px;
+    font-size: 25px;
     font-weight: bold;
     color: rgb(106, 133, 50);
+}
+button {
+    border: 1px solid rgb(106, 133, 50);
 }
 li {
     list-style: none;
