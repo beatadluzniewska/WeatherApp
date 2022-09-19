@@ -31,7 +31,13 @@ function displayDate(date) {
     displayedDate.innerHTML = todaysDate;
 
     let currentHour = date.getHours();
+    if (currentHour < 10) {
+        currentHour = `0${currentHour}`;
+    }
     let currentMinutes = date.getMinutes();
+    if (currentMinutes < 10) {
+        currentMinutes = `0${currentMinutes}`;
+    }
     let realTime = `${currentHour}:${currentMinutes}`;
     let displayedHour = document.querySelector("#time-now");
     displayedHour.innerHTML = realTime;
