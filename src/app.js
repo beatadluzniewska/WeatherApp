@@ -38,6 +38,7 @@ function displayDate(date) {
     if (currentMinutes < 10) {
         currentMinutes = `0${currentMinutes}`;
     }
+
     let realTime = `${currentHour}:${currentMinutes}`;
     let displayedHour = document.querySelector("#time-now");
     displayedHour.innerHTML = realTime;
@@ -138,19 +139,21 @@ function weatherCurrentLocation(event) {
 let button = document.querySelector("#current-location");
 button.addEventListener("click", weatherCurrentLocation);
 
-// function fahrenheitCelsius(event) {
+// function toFahrenheit(event) {
 //     event.preventDefault();
-//     let cel = document.querySelector(".temp-now");
-//     cel.innerHTML = " 22°C";
+//     let tempElement = document.querySelector("#temperature-now");
+//     let temp = tempElement.innerHTML;
+//     temp = Number(temp);
+//     tempElement.innerHTML = Math.round((temp * 9) / 5 + 32);
+// }
+
+// let convertFahrenheit = document.querySelector("#fahrenheit");
+// convertFahrenheit.addEventListener("click", toFahrenheit);
+
+// function toCelsius(event) {
+//     event.preventDefault();
+//     let temp = document.querySelector("#temperature-now");
+//     temp.innerHTML = 22;
 // }
 // let convert1 = document.querySelector("#celsius");
-// convert1.addEventListener("click", fahrenheitCelsius);
-
-// function celsiusFahrenheit(event) {
-//     event.preventDefault();
-//     let fahr = document.querySelector(".temp-now");
-//     fahr.innerHTML = " 71,6°F";
-// }
-
-// let convert2 = document.querySelector("#fahrenheit");
-// convert2.addEventListener("click", celsiusFahrenheit);
+// convert1.addEventListener("click", toCelsius);
