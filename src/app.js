@@ -84,22 +84,18 @@ function formatDate(timestamp) {
     let day = days[date.getDay()];
     let month = months[date.getMonth()];
     let dateToday = date.getDate();
-    if ((dateToday = 1)) {
-        dateToday = `1st`;
-    } else if ((dateToday = 2)) {
-        dateToday = "2nd";
-    }
+
     return `${day}, ${month} ${dateToday}`;
 }
 //search engine + onclick
 
 function showCityWeather(response) {
-    console.log(response);
     let cityNow = document.querySelector("#current-city");
     cityNow.innerHTML = response.data.name;
     let temp = Math.round(response.data.main.temp);
     let tempNow = document.querySelector("#temperature-now");
     tempNow.innerHTML = ` ${temp}°C`;
+
     document.querySelector("#max").innerHTML = Math.round(
         response.data.main.temp_max
     );
@@ -119,6 +115,15 @@ function showCityWeather(response) {
     document.querySelector("#day-date").innerHTML = formatDate(
         response.data.dt * 1000
     );
+
+    let iconElement = document.querySelector("#icon");
+    iconElement.setAttribute(
+        "src",
+        `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+
+    iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
+
     //sunrise and sunset to be continued
     let unix_timestamp = response.data.sys.sunrise;
     let date = new Date(unix_timestamp * 1000);
@@ -141,8 +146,8 @@ function searchCity(city) {
 
 function handleSubmit(event) {
     event.preventDefault();
-    let city = document.querySelector("#input-city").value;
-    searchCity(city);
+    let inputCity = document.querySelector("#input-city").value;
+    searchCity(inputCity);
 }
 
 //current location
