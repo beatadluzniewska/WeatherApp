@@ -92,7 +92,6 @@ function handleSubmit(event) {
     let city = document.querySelector("#input-city").value;
     searchCity(city);
 }
-
 //current location
 function myPosition(position) {
     var lat = position.coords.latitude;
