@@ -1,6 +1,6 @@
 body {
     font-family: "Lato", sans-serif;
-    /* font-size: 10px; */
+    font-size: 12px;
 }
 h1 {
     font-size: 25px;
@@ -12,6 +12,9 @@ button {
 }
 li {
     list-style: none;
+}
+li:first-letter {
+    text-transform: capitalize;
 }
 col {
     text-align: center;
@@ -39,11 +42,13 @@ ul.upcoming {
 .card.wrapper {
     margin: 10px auto;
     padding: 30px 50px 50px 50px;
-    max-width: 1000px;
+    min-width: 800px;
+    max-width: 500px;
     border: 2px solid rgb(154, 154, 154);
     border-radius: 80px;
 }
 .card.upcoming {
+    height: 250px;
     margin-top: 40px;
     border: 2px solid rgb(154, 154, 154);
     background: rgba(228, 228, 228, 0.279);
@@ -75,11 +80,9 @@ ul.upcoming {
 }
 .upcoming-days {
     font-weight: bold;
-    font-size: 25px;
 }
-.temperature {
-    font-size: 25px;
-}
+/* .temperature {
+} */
 
 .fa-brands.fa-github {
     color: rgb(57, 57, 57);

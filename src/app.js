@@ -1,5 +1,64 @@
-let currentTime = new Date();
-function displayDate(date) {
+// git test
+// let currentTime = new Date();
+// function displayDate(date) {
+//     let days = [
+//         "Sunday",
+//         "Monday",
+//         "Tuesday",
+//         "Wednesday",
+//         "Thursday",
+//         "Friday",
+//         "Saturday",
+//     ];
+//     let currentDay = days[date.getDay()];
+//     let months = [
+//         "January",
+//         "February",
+//         "March",
+//         "April",
+//         "May",
+//         "June",
+//         "July",
+//         "August",
+//         "September",
+//         "October",
+//         "November",
+//         "December",
+//     ];
+//     let currentMonth = months[date.getMonth()];
+//     let currentDate = date.getDate();
+//     let todaysDate = `${currentDay}, ${currentMonth} ${currentDate}`;
+//     let displayedDate = document.querySelector("#day-date");
+//     displayedDate.innerHTML = todaysDate;
+
+//     let currentHour = date.getHours();
+//     if (currentHour < 10) {
+//         currentHour = `0${currentHour}`;
+//     }
+//     let currentMinutes = date.getMinutes();
+//     if (currentMinutes < 10) {
+//         currentMinutes = `0${currentMinutes}`;
+//     }
+
+//     let realTime = `${currentHour}:${currentMinutes}`;
+//     let displayedHour = document.querySelector("#time-now");
+//     displayedHour.innerHTML = realTime;
+// }
+// displayDate(currentTime);
+function formatHour(timestamp) {
+    let date = new Date(timestamp);
+    let hours = date.getHours();
+    if (hours < 10) {
+        hours = `0${hours}`;
+    }
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+        minutes = `0${minutes}`;
+    }
+    return `${hours}:${minutes}`;
+}
+function formatDate(timestamp) {
+    let date = new Date(timestamp);
     let days = [
         "Sunday",
         "Monday",
@@ -9,7 +68,6 @@ function displayDate(date) {
         "Friday",
         "Saturday",
     ];
-    let currentDay = days[date.getDay()];
     let months = [
         "January",
         "February",
@@ -24,36 +82,21 @@ function displayDate(date) {
         "November",
         "December",
     ];
-    let currentMonth = months[date.getMonth()];
-    let currentDate = date.getDate();
-    let todaysDate = `${currentDay}, ${currentMonth} ${currentDate}`;
-    let displayedDate = document.querySelector("#day-date");
-    displayedDate.innerHTML = todaysDate;
+    let day = days[date.getDay()];
+    let month = months[date.getMonth()];
+    let dateToday = date.getDate();
 
-    let currentHour = date.getHours();
-    if (currentHour < 10) {
-        currentHour = `0${currentHour}`;
-    }
-    let currentMinutes = date.getMinutes();
-    if (currentMinutes < 10) {
-        currentMinutes = `0${currentMinutes}`;
-    }
-
-    let realTime = `${currentHour}:${currentMinutes}`;
-    let displayedHour = document.querySelector("#time-now");
-    displayedHour.innerHTML = realTime;
+    return `${day}, ${month} ${dateToday}`;
 }
-displayDate(currentTime);
-
 //search engine + onclick
 
 function showCityWeather(response) {
-    console.log(response);
     let cityNow = document.querySelector("#current-city");
     cityNow.innerHTML = response.data.name;
     let temp = Math.round(response.data.main.temp);
     let tempNow = document.querySelector("#temperature-now");
     tempNow.innerHTML = ` ${temp}°C`;
+
     document.querySelector("#max").innerHTML = Math.round(
         response.data.main.temp_max
     );
@@ -66,6 +109,21 @@ function showCityWeather(response) {
 
     document.querySelector("#description").innerHTML =
         response.data.weather[0].description;
+
+    document.querySelector("#time-now").innerHTML = formatHour(
+        response.data.dt * 1000
+    );
+    document.querySelector("#day-date").innerHTML = formatDate(
+        response.data.dt * 1000
+    );
+
+    let iconElement = document.querySelector("#icon");
+    iconElement.setAttribute(
+        "src",
+        `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+
+    iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
 
     //sunrise and sunset to be continued
     let unix_timestamp = response.data.sys.sunrise;
@@ -89,8 +147,8 @@ function searchCity(city) {
 
 function handleSubmit(event) {
     event.preventDefault();
-    let city = document.querySelector("#input-city").value;
-    searchCity(city);
+    let inputCity = document.querySelector("#input-city").value;
+    searchCity(inputCity);
 }
 //current location
 function myPosition(position) {
