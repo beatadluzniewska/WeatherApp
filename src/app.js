@@ -1,3 +1,4 @@
+// git test
 // let currentTime = new Date();
 // function displayDate(date) {
 //     let days = [
