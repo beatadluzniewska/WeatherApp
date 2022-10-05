@@ -22,12 +22,16 @@ col {
 ul.upcoming {
     padding-left: 0;
 }
+a {
+    text-decoration: none;
+}
 .search-list {
     display: inline-block;
     margin-right: 20px;
     margin-bottom: 30px;
 }
-.time-switch {
+.time-switch,
+.units {
     display: inline-block;
     margin-right: 20px;
 }
@@ -91,4 +95,13 @@ ul.upcoming {
 .credits {
     text-align: center;
     margin: 0 auto;
+}
+
+.col-6 .active {
+    color: rgb(57, 57, 57);
+    cursor: default;
+}
+
+.col-6 .active:hover {
+    text-decoration: none;
 }
