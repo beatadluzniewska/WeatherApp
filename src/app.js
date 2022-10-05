@@ -220,3 +220,22 @@ searchCity("New York");
 // }
 // let convert1 = document.querySelector("#celsius");
 // convert1.addEventListener("click", toCelsius);
+
+// function toFahrenheit(event) {
+//     event.preventDefault();
+//     let tempElement = document.querySelector("#temperature-now");
+//     let temp = tempElement.innerHTML;
+//     temp = Number(temp);
+//     tempElement.innerHTML = Math.round((temp * 9) / 5 + 32);
+// }
+
+// let convertFahrenheit = document.querySelector("#fahrenheit");
+// convertFahrenheit.addEventListener("click", toFahrenheit);
+
+// function toCelsius(event) {
+//     event.preventDefault();
+//     let temp = document.querySelector("#temperature-now");
+//     temp.innerHTML = 22;
+// }
+// let convert1 = document.querySelector("#celsius");
+// convert1.addEventListener("click", toCelsius);
