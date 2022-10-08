@@ -1,14 +1,11 @@
 body {
     font-family: "Lato", sans-serif;
-    font-size: 12px;
+    font-size: 10px;
 }
+
 h1 {
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 30px;
     color: #000000;
-}
-button {
-    border: 1px solid rgb(106, 133, 50);
 }
 li {
     list-style: none;
@@ -24,14 +21,25 @@ ul.upcoming {
 }
 a {
     text-decoration: none;
+    color: #000000;
 }
-.search-list {
+ul {
+    padding-left: 2px;
+}
+
+.weather-today-icon {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+}
+/* .search-list {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 10px;
     margin-bottom: 30px;
-}
+} */
 .time-switch,
 .units {
+    position: relative;
     display: inline-block;
     margin-right: 20px;
 }
@@ -46,34 +54,31 @@ a {
 .card.wrapper {
     margin: 10px auto;
     padding: 30px 50px 50px 50px;
-    min-width: 800px;
-    max-width: 500px;
-    border: 2px solid rgb(154, 154, 154);
-    border-radius: 80px;
-}
-.card.upcoming {
-    height: 250px;
-    margin-top: 40px;
-    border: 2px solid rgb(154, 154, 154);
-    background: rgba(228, 228, 228, 0.279);
-    border-radius: 50px;
+    width: 600px;
+    height: fit-content;
+    border: 1px solid rgb(154, 154, 154);
+    border-radius: 30px;
 }
 
 .fa-solid.fa-cloud-sun.day-after {
     color: rgb(95, 95, 95);
 }
-.form-check-label {
+/* .form-check-label {
     position: relative;
     top: 8px;
     left: 3px;
-}
+} */
 .form-check-input:checked {
-    background-color: rgb(149, 149, 149);
+    background-color: rgb(244, 244, 244);
     border-color: rgb(149, 149, 149);
 }
 .row.forecast {
-    padding: 30px;
+    margin-top: 30px;
+    border: 1px solid rgb(196, 196, 196);
+    border-radius: 20px;
+    /* background: rgba(243, 243, 243, 0.279); */
 }
+
 .atmosphere {
     margin-top: 20px;
 }
@@ -97,13 +102,28 @@ a {
     margin: 0 auto;
 }
 
-.col-6 .active {
-    color: rgb(57, 57, 57);
+.col-12 .active {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
     cursor: default;
 }
 
-.col-6 .active:hover {
+.col-12 .active:hover {
     text-decoration: none;
 }
 
-/* week8 */
+.col-12 .inactive {
+    color: rgb(197, 197, 197);
+    cursor: default;
+}
+.col-12 .inactive:hover {
+    cursor: pointer;
+}
+
+.form-control {
+    display: inline-block;
+    width: 80%;
+}
+.temp-now {
+    font-weight: bold;
+}

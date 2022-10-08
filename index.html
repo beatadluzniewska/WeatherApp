@@ -18,147 +18,153 @@
 </head>
 
 <body>
-  <div class="container">
 
-    <div class="card wrapper">
-      <ul>
-        <li class="search-list">
-          <form class="search-city" id="city-engine">
-            <input type="search" for="search" placeholder="search city" id="input-city">
-            <input type="submit" value="search">
-          </form>
-        </li>
-        <li class="search-list">
-          <button id="current-location"><i class="fa-solid fa-location-crosshairs"></i></button>
-        </li>
-      </ul>
-      <!-- //git test -->
+  <div class="card wrapper">
+    <!-- <ul>
+        <li class="search-list"> -->
 
-      <div class="row">
-        <div class="col-4">
-          <img alt="" id="icon" src="" />
-        </div>
-        <div class="col-8">
-          <div class="row">
-            <div class="col-6">
-              <ul>
-                <li class="time-switch">Now, <span id="time-now">00:00</span></li>
-                <li class="units"></li><a href="#" id="celsius-link" class="active">°C </a><span> | </span><a href="#"
-                  id="fahrenheit-link">°F</a>
-                </li>
-                <li>
-                  <h1><span id="current-city"></span><span id="temperature-now" class="temp-now"></span></h1>
-                </li>
-                <li><span id="day-date">Thursday, July 14th</span></li>
-                <li><span id="description">Sunny</span></li>
-              </ul>
-            </div>
-            <div class="col-6">
-              <ul>
-                <br />
-                <li> <img width="30px"
-                    src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/090/original/2392510.png?1658347341" />Sunrise
-                  <span id="sunrise">04:52</span>
-                </li>
-                <li><img width="30px"
-                    src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/091/original/2392509.png?1658347345" />Sunset
-                  21:56</li>
-              </ul>
-            </div>
-          </div>
-          <div class="row atmosphere">
-            <div class="col-3">
-              <ul>
-                <li><b>Max Temp.</b></li>
-                <li><b>Min Temp.</b></li>
-                <li><b>UV Index</b></li>
-              </ul>
-            </div>
-            <div class="col-3">
-              <ul>
-                <li><span id="max">35</span>°C</li>
-                <li><span id="min">21</span>°C</li>
-                <li><span id="uvIndex">8</span></li>
-              </ul>
 
-            </div>
-            <div class="col-3">
-              <ul>
-                <li><b>Wind</b></li>
-                <li><b>Humidity</b></li>
-                <li><b>Visibility</b></li>
-              </ul>
-            </div>
-            <div class="col-3">
-              <ul>
-                <li><span id="wind">11</span> km/h</li>
-                <li><span id="humidity">57</span>%</li>
-                <li><span id="visibility">35</span> km</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    <form class="form-inline mb-3 mt-1" id="city-engine">
+      <div class="form-group mb-2">
+        <input class="form-control form-control-sm" type=" search" for="search" placeholder="search city"
+          id="input-city">
+        <input class="btn btn-light btn-sm" type="submit" value="search">
+        <button class="btn btn-light btn-sm" id="current-location"><i
+            class="fa-solid fa-location-crosshairs"></i></button>
       </div>
-      <div class="card upcoming">
-        <div class="row forecast">
-          <div class="col">
-            <ul class="upcoming">
-              <li class="upcoming-days">Sat.</li>
-              <li><img width="80px"
-                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/092/original/3222672.png?1658347352" />
-              </li>
-              <li class="temperature">28°</li>
-            </ul>
-          </div>
-          <div class="col">
-            <ul>
+    </form>
+    <!-- </li> -->
+    <!-- </ul> -->
 
-              <li class="upcoming-days">Sun.</li>
-              <li><img width="80px"
-                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/092/original/3222672.png?1658347352" />
+    <div class="row">
+      <div class="col-4">
+        <!--  -->
+        <img class="weather-today-icon" alt="" id="icon" src="" />
+        <!--  -->
+      </div>
+      <div class="col-8">
+        <div class="row">
+          <div class="col-12">
+            <ul>
+              <li class="time-switch">Last updated: <span id="time-now">00:00</span></li>
+
+              <h4><span id="current-city"></span></h4>
+              <li class="temperature-display">
+                <h1><span id="temperature-now" class="temp-now"></span></h1>
+              <li class="units"><a href="#" id="celsius-link" class="active">°C </a><span> | </span><a href="#"
+                  id="fahrenheit-link" class="inactive">°F</a>
               </li>
-              <li class="temperature">32°</li>
+              </li>
+              <li><span id="day-date">Thursday, July 14th</span></li>
+              <li><span id="description">Sunny</span></li>
             </ul>
           </div>
-          <div class=" col">
+          <!-- <div class="col-6">
             <ul>
-              <li class="upcoming-days">Mon.</li>
-              <li><img width="80px"
-                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/093/original/3222693.png?1658347357" />
+              <br />
+              <li> <img class="sun-icon" width="20px"
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/090/original/2392510.png?1658347341" />Sunrise
+                <span id="sunrise">04:52</span>
               </li>
-              <li class="temperature">35°</li>
+              <li><img class="sun-icon" width="20px"
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/091/original/2392509.png?1658347345" />Sunset
+                21:56</li>
+            </ul>
+          </div> -->
+        </div>
+        <div class="row atmosphere">
+          <div class="col-3">
+            <ul>
+              <li><b>Max Temp.</b></li>
+              <li><b>Min Temp.</b></li>
+              <li><b>Wind</b></li>
             </ul>
           </div>
-          <div class="col">
+          <div class="col-3">
             <ul>
-              <li class="upcoming-days">Tue.</li>
-              <li><img width="80px"
-                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/094/original/3222797.png?1658347365" /></i>
-              </li>
-              <li class="temperature">23°</li>
+              <li><span id="max">35</span>°C</li>
+              <li><span id="min">21</span>°C</li>
+              <li><span id="wind">11</span> km/h</li>
+            </ul>
+
+          </div>
+          <div class="col-3">
+            <ul>
+              <li><b>Sunrise</b></li>
+              <li><b>Sunset</b></li>
+              <li><b>Humidity</b></li>
             </ul>
           </div>
-          <div class="col">
+          <div class="col-3">
             <ul>
-              <li class="upcoming-days">Wed.</li>
-              <li><img width="80px"
-                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/092/original/3222672.png?1658347352" />
-              </li>
-              <li class="temperature">25°</li>
+              <li><span id="sunrise">00:00</span></li>
+              <li><span id="sunset">00:00</span></li>
+              <li><span id="humidity">57</span>%</li>
             </ul>
           </div>
         </div>
       </div>
+    </div>
+    <!-- <div class="card upcoming"> -->
+    <div class="row forecast">
+      <div class="col">
+        <ul class="upcoming">
+          <li class="upcoming-days">Sat.</li>
+          <li><img width="40px"
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/092/original/3222672.png?1658347352" />
+          </li>
+          <li class="temperature"><span class="temp-upcoming-max">28°</span> | <span
+              class="temp-upcoming-min">12°</span></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul class="upcoming">
 
+          <li class="upcoming-days">Sun.</li>
+          <li><img width="40px"
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/092/original/3222672.png?1658347352" />
+          </li>
+          <li class="temperature">32° | 12°</li>
+        </ul>
+      </div>
+      <div class=" col">
+        <ul class="upcoming">
+          <li class="upcoming-days">Mon.</li>
+          <li><img width="40px"
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/093/original/3222693.png?1658347357" />
+          </li>
+          <li class="temperature">35° | 12°</li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul class="upcoming">
+          <li class="upcoming-days">Tue.</li>
+          <li><img width="40px"
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/094/original/3222797.png?1658347365" /></i>
+          </li>
+          <li class="temperature">23° | 12°</li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul class="upcoming">
+          <li class="upcoming-days">Wed.</li>
+          <li><img width="40px"
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/092/original/3222672.png?1658347352" />
+          </li>
+          <li class="temperature">25° | 12°</li>
+        </ul>
+      </div>
     </div>
-    <div class="credits">
-      <span>Coded by Beata Dluzniewska </span><a href="https://github.com/beatadluzniewska/WeatherApp"
-        target="_blank"><i class="fa-brands fa-github"></i></a>
-    </div>
+    <!-- </div> -->
+
+  </div>
+  <div class="credits">
+    <span>Coded by Beata Dluzniewska </span><a href="https://github.com/beatadluzniewska/WeatherApp" target="_blank"><i
+        class="fa-brands fa-github"></i></a>
+  </div>
   </div>
 
   <script src="src/app.js"></script>
 </body>
 
 </html>
-<!-- week8 -->
