@@ -89,7 +89,8 @@ function formatDate(timestamp) {
     return `${day}, ${month} ${dateToday}`;
 }
 
-displayForecast = () => {
+displayForecast = (response) => {
+    console.log(response.data.daily);
     let forecastElement = document.querySelector("#forecast");
 
     let forecastHTML = "";
@@ -109,6 +110,14 @@ displayForecast = () => {
 };
 
 //search engine + onclick
+
+getForecast = (coordinates) => {
+    console.log(coordinates);
+    let apiKey = "e80dc1bacc0ef8618621e6997e2afedc";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    console.log(apiUrl);
+    axios.get(apiUrl).then(displayForecast);
+};
 
 function showCityWeather(response) {
     let cityNow = document.querySelector("#current-city");
@@ -159,6 +168,8 @@ function showCityWeather(response) {
         minutes = `0${minutes}`;
     }
     document.querySelector("#sunrise").innerHTML = hours + ":" + minutes;
+
+    getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -172,6 +183,7 @@ function handleSubmit(event) {
     let inputCity = document.querySelector("#input-city").value;
     searchCity(inputCity);
 }
+
 //current location
 function myPosition(position) {
     var lat = position.coords.latitude;
@@ -190,6 +202,8 @@ function getCurrentLocation(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(myPosition);
 }
+
+//
 
 function displayFahrenheit(event) {
     event.preventDefault();
@@ -224,7 +238,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsius);
-
-displayForecast();
 
 searchCity("New York");
