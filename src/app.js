@@ -89,25 +89,39 @@ function formatDate(timestamp) {
     return `${day}, ${month} ${dateToday}`;
 }
 
-displayForecast = (response) => {
-    console.log(response.data.daily);
+function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    return days[day];
+}
+
+function displayForecast(response) {
+    let forecast = response.data.daily;
     let forecastElement = document.querySelector("#forecast");
 
     let forecastHTML = "";
-    let days = ["Sun", "Mon", "Tue"];
-    days.forEach(function (day) {
-        forecastHTML =
-            forecastHTML +
-            `<div class="col-2 upcoming-days">
-          <div>${day}</div>
+    forecast.forEach(function (forecastDay, index) {
+        if (index < 6) {
+            forecastHTML =
+                forecastHTML +
+                `<div class="col-2 upcoming-days">
+          <div>${formatDay(forecastDay.dt)}</div>
           <img width="70px" alt=""
-              src="http://openweathermap.org/img/wn/01d@2x.png" />
-          <div class="temperature"><span class="temp-upcoming-max">28°</span> | <span
-              class="temp-upcoming-min">12°</span></div></div>`;
+              src="http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+              }@2x.png" />
+          <div class="temperature"><span class="temp-upcoming-max">${Math.round(
+              forecastDay.temp.day
+          )}</span> | <span
+              class="temp-upcoming-min">${Math.round(
+                  forecastDay.temp.night
+              )}</span></div></div>`;
+        }
     });
 
     forecastElement.innerHTML = forecastHTML;
-};
+}
 
 //search engine + onclick
 
@@ -156,18 +170,30 @@ function showCityWeather(response) {
     iconElement.classList.add("weather-today-icon");
     iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
 
-    //sunrise and sunset to be continued
-    let unix_timestamp = response.data.sys.sunrise;
-    let date = new Date(unix_timestamp * 1000);
-    let hours = date.getHours();
-    if (hours < 10) {
-        hours = `0${hours}`;
+    //sunrise and sunset to be improved!!
+    let unix1_timestamp = response.data.sys.sunrise;
+    let date1 = new Date(unix1_timestamp * 1000);
+    let hours1 = date1.getHours();
+    if (hours1 < 10) {
+        hours1 = `0${hours1}`;
     }
-    let minutes = date.getMinutes();
-    if (minutes < 10) {
-        minutes = `0${minutes}`;
+    let minutes1 = date1.getMinutes();
+    if (minutes1 < 10) {
+        minutes1 = `0${minutes1}`;
     }
-    document.querySelector("#sunrise").innerHTML = hours + ":" + minutes;
+    document.querySelector("#sunrise").innerHTML = hours1 + ":" + minutes1;
+
+    let unix2_timestamp = response.data.sys.sunset;
+    let date2 = new Date(unix2_timestamp * 1000);
+    let hours2 = date2.getHours();
+    if (hours2 < 10) {
+        hours2 = `0${hours2}`;
+    }
+    let minutes2 = date2.getMinutes();
+    if (minutes2 < 10) {
+        minutes2 = `0${minutes2}`;
+    }
+    document.querySelector("#sunset").innerHTML = hours2 + ":" + minutes2;
 
     getForecast(response.data.coord);
 }
