@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Weather App</title>
+  <title>Vanilla Weather App</title>
   <meta charset="UTF-8">
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,10 +20,6 @@
 <body>
 
   <div class="card wrapper">
-    <!-- <ul>
-        <li class="search-list"> -->
-
-
     <form class="form-inline mb-3 mt-1" id="city-engine">
       <div class="form-group mb-2">
         <input class="form-control form-control-sm" type=" search" for="search" placeholder="search city"
@@ -33,44 +29,28 @@
             class="fa-solid fa-location-crosshairs"></i></button>
       </div>
     </form>
-    <!-- </li> -->
-    <!-- </ul> -->
-
     <div class="row">
       <div class="col-4">
-        <!--  -->
         <img class="weather-today-icon" alt="" id="icon" src="" />
-        <!--  -->
       </div>
       <div class="col-8">
         <div class="row">
           <div class="col-12">
             <ul>
               <li class="time-switch">Last updated: <span id="time-now">00:00</span></li>
-
-              <h4><span id="current-city"></span></h4>
+              <li>
+                <h4><span id="current-city"></span></h4>
+              </li>
               <li class="temperature-display">
                 <h1><span id="temperature-now" class="temp-now"></span></h1>
-              <li class="units"><a href="#" id="celsius-link" class="active">°C </a><span> | </span><a href="#"
-                  id="fahrenheit-link" class="inactive">°F</a>
+                <span class="units"><a href="#" id="celsius-link" class="active">°C </a><span> | </span><a href="#"
+                    id="fahrenheit-link" class="inactive">°F</a></span>
               </li>
-              </li>
+
               <li><span id="day-date">Thursday, July 14th</span></li>
               <li><span id="description">Sunny</span></li>
             </ul>
           </div>
-          <!-- <div class="col-6">
-            <ul>
-              <br />
-              <li> <img class="sun-icon" width="20px"
-                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/090/original/2392510.png?1658347341" />Sunrise
-                <span id="sunrise">04:52</span>
-              </li>
-              <li><img class="sun-icon" width="20px"
-                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/091/original/2392509.png?1658347345" />Sunset
-                21:56</li>
-            </ul>
-          </div> -->
         </div>
         <div class="row atmosphere">
           <div class="col-3">
@@ -105,66 +85,9 @@
         </div>
       </div>
     </div>
-    <!-- <div class="card upcoming"> -->
-    <div class="row forecast">
-      <div class="col">
-        <ul class="upcoming">
-          <li class="upcoming-days">Sat.</li>
-          <li><img width="40px"
-              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/092/original/3222672.png?1658347352" />
-          </li>
-          <li class="temperature"><span class="temp-upcoming-max">28°</span> | <span
-              class="temp-upcoming-min">12°</span></li>
-        </ul>
-      </div>
-      <div class="col">
-        <ul class="upcoming">
+    <div class="row" id="forecast"></div>
 
-          <li class="upcoming-days">Sun.</li>
-          <li><img width="40px"
-              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/092/original/3222672.png?1658347352" />
-          </li>
-          <li class="temperature">32° | 12°</li>
-        </ul>
-      </div>
-      <div class=" col">
-        <ul class="upcoming">
-          <li class="upcoming-days">Mon.</li>
-          <li><img width="40px"
-              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/093/original/3222693.png?1658347357" />
-          </li>
-          <li class="temperature">35° | 12°</li>
-        </ul>
-      </div>
-      <div class="col">
-        <ul class="upcoming">
-          <li class="upcoming-days">Tue.</li>
-          <li><img width="40px"
-              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/094/original/3222797.png?1658347365" /></i>
-          </li>
-          <li class="temperature">23° | 12°</li>
-        </ul>
-      </div>
-      <div class="col">
-        <ul class="upcoming">
-          <li class="upcoming-days">Wed.</li>
-          <li><img width="40px"
-              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/092/original/3222672.png?1658347352" />
-          </li>
-          <li class="temperature">25° | 12°</li>
-        </ul>
-      </div>
-    </div>
-    <!-- </div> -->
-
-  </div>
-  <div class="credits">
-    <span>Coded by Beata Dluzniewska </span><a href="https://github.com/beatadluzniewska/WeatherApp" target="_blank"><i
-        class="fa-brands fa-github"></i></a>
-  </div>
-  </div>
-
-  <script src="src/app.js"></script>
+    <script src="src/app.js"></script>
 </body>
 
 </html>

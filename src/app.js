@@ -88,6 +88,26 @@ function formatDate(timestamp) {
 
     return `${day}, ${month} ${dateToday}`;
 }
+
+displayForecast = () => {
+    let forecastElement = document.querySelector("#forecast");
+
+    let forecastHTML = "";
+    let days = ["Sun", "Mon", "Tue"];
+    days.forEach(function (day) {
+        forecastHTML =
+            forecastHTML +
+            `<div class="col-2 upcoming-days">
+          <div>${day}</div>
+          <img width="70px" alt=""
+              src="http://openweathermap.org/img/wn/01d@2x.png" />
+          <div class="temperature"><span class="temp-upcoming-max">28°</span> | <span
+              class="temp-upcoming-min">12°</span></div></div>`;
+    });
+
+    forecastElement.innerHTML = forecastHTML;
+};
+
 //search engine + onclick
 
 function showCityWeather(response) {
@@ -205,22 +225,6 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsius);
 
+displayForecast();
+
 searchCity("New York");
-// function toFahrenheit(event) {
-//     event.preventDefault();
-//     let tempElement = document.querySelector("#temperature-now");
-//     let temp = tempElement.innerHTML;
-//     temp = Number(temp);
-//     tempElement.innerHTML = Math.round((temp * 9) / 5 + 32);
-// }
-
-// let convertFahrenheit = document.querySelector("#fahrenheit");
-// convertFahrenheit.addEventListener("click", toFahrenheit);
-
-// function toCelsius(event) {
-//     event.preventDefault();
-//     let temp = document.querySelector("#temperature-now");
-//     temp.innerHTML = 22;
-// }
-// let convert1 = document.querySelector("#celsius");
-// convert1.addEventListener("click", toCelsius);
