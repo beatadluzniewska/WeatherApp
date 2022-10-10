@@ -8,19 +8,24 @@ h1 {
     font-size: 30px;
     color: #000000;
 }
+h4 {
+    display: inline;
+    font-size: 25px;
+}
 li {
     list-style: none;
 }
 li:first-letter {
     text-transform: capitalize;
 }
+div.temperature-display {
+    margin: 8px 0 8px 0;
+}
 
 col {
     text-align: center;
 }
-ul.upcoming {
-    padding-left: 0;
-}
+
 a {
     text-decoration: none;
     color: #000000;
@@ -34,55 +39,29 @@ ul {
     margin: 0 auto;
     width: 150px;
 }
-/* .search-list {
-    display: inline-block;
-    margin-right: 10px;
-    margin-bottom: 30px;
-} */
 .units {
     position: relative;
     bottom: 14px;
-    padding-left: 5px;
-    margin-right: 20px;
+    font-size: 12px;
 }
-.fa-solid.fa-cloud-sun.weather-now {
-    top: 40px;
-    color: rgb(129, 129, 129);
-    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
-}
-.container {
-    margin: 50px;
-}
+
 .card.wrapper {
     margin: 10px auto;
     padding: 30px 50px 50px 50px;
     width: 600px;
     height: fit-content;
-    border: 1px solid rgb(154, 154, 154);
-    border-radius: 30px;
+    border: 2px dotted rgb(154, 154, 154);
+    border-radius: 10px;
 }
 
-.fa-solid.fa-cloud-sun.day-after {
-    color: rgb(95, 95, 95);
-}
-/* .form-check-label {
-    position: relative;
-    top: 8px;
-    left: 3px;
-} */
-.form-check-input:checked {
-    background-color: rgb(244, 244, 244);
-    border-color: rgb(149, 149, 149);
-}
 #forecast {
     margin-top: 30px;
     border: 1px solid rgb(196, 196, 196);
-    border-radius: 20px;
-    /* background: rgba(243, 243, 243, 0.279); */
+    border-radius: 8px;
 }
 
-.atmosphere {
-    margin-top: 20px;
+.weather-details {
+    margin-top: 15px;
 }
 
 .upcoming-days {
@@ -91,12 +70,10 @@ ul {
     line-height: 40px;
     font-weight: bold;
 }
-/* .temperature {
-} */
 
 .fa-brands.fa-github {
     color: rgb(57, 57, 57);
-    font-size: 20px;
+    font-size: 15px;
 }
 .credits {
     text-align: center;
@@ -121,10 +98,40 @@ ul {
     cursor: pointer;
 }
 
-.form-control {
-    display: inline-block;
-    width: 80%;
+.temp-upcoming-night {
+    color: rgb(188, 188, 188);
 }
-.temp-now {
-    font-weight: bold;
+.time-switch {
+    color: rgb(236, 110, 76);
+}
+#country {
+    font-family: "Cerebri Sans", sans-serif;
+}
+#description {
+    font-family: "Cerebri Sans", sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    color: grey;
+}
+
+.search-city {
+    color: black;
+}
+form {
+    margin: 0 auto;
+}
+input.search-city {
+    width: 400px;
+}
+.search-button,
+.location {
+    background-color: #9a9a9a;
+    color: rgb(255, 255, 255);
+    border-color: rgb(154, 154, 154, 0);
+    border-radius: 2px;
+}
+
+body {
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0h2v20H9V0zm25.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm-20 20l1.732 1-10 17.32-1.732-1 10-17.32zM58.16 4.134l1 1.732-17.32 10-1-1.732 17.32-10zm-40 40l1 1.732-17.32 10-1-1.732 17.32-10zM80 9v2H60V9h20zM20 69v2H0v-2h20zm79.32-55l-1 1.732-17.32-10L82 4l17.32 10zm-80 80l-1 1.732-17.32-10L2 84l17.32 10zm96.546-75.84l-1.732 1-10-17.32 1.732-1 10 17.32zm-100 100l-1.732 1-10-17.32 1.732-1 10 17.32zM38.16 24.134l1 1.732-17.32 10-1-1.732 17.32-10zM60 29v2H40v-2h20zm19.32 5l-1 1.732-17.32-10L62 24l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM111 40h-2V20h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zM40 49v2H20v-2h20zm19.32 5l-1 1.732-17.32-10L42 44l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM91 60h-2V40h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM39.32 74l-1 1.732-17.32-10L22 64l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM71 80h-2V60h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM120 89v2h-20v-2h20zm-84.134 9.16l-1.732 1-10-17.32 1.732-1 10 17.32zM51 100h-2V80h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM100 109v2H80v-2h20zm19.32 5l-1 1.732-17.32-10 1-1.732 17.32 10zM31 120h-2v-20h2v20z' fill='%239a9a9a' fill-opacity='0.06' fill-rule='evenodd'/%3E%3C/svg%3E");
 }

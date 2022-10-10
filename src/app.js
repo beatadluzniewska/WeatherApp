@@ -1,50 +1,3 @@
-// git test
-// let currentTime = new Date();
-// function displayDate(date) {
-//     let days = [
-//         "Sunday",
-//         "Monday",
-//         "Tuesday",
-//         "Wednesday",
-//         "Thursday",
-//         "Friday",
-//         "Saturday",
-//     ];
-//     let currentDay = days[date.getDay()];
-//     let months = [
-//         "January",
-//         "February",
-//         "March",
-//         "April",
-//         "May",
-//         "June",
-//         "July",
-//         "August",
-//         "September",
-//         "October",
-//         "November",
-//         "December",
-//     ];
-//     let currentMonth = months[date.getMonth()];
-//     let currentDate = date.getDate();
-//     let todaysDate = `${currentDay}, ${currentMonth} ${currentDate}`;
-//     let displayedDate = document.querySelector("#day-date");
-//     displayedDate.innerHTML = todaysDate;
-
-//     let currentHour = date.getHours();
-//     if (currentHour < 10) {
-//         currentHour = `0${currentHour}`;
-//     }
-//     let currentMinutes = date.getMinutes();
-//     if (currentMinutes < 10) {
-//         currentMinutes = `0${currentMinutes}`;
-//     }
-
-//     let realTime = `${currentHour}:${currentMinutes}`;
-//     let displayedHour = document.querySelector("#time-now");
-//     displayedHour.innerHTML = realTime;
-// }
-// displayDate(currentTime);
 function formatHour(timestamp) {
     let date = new Date(timestamp);
     let hours = date.getHours();
@@ -111,12 +64,12 @@ function displayForecast(response) {
               src="http://openweathermap.org/img/wn/${
                   forecastDay.weather[0].icon
               }@2x.png" />
-          <div class="temperature"><span class="temp-upcoming-max">${Math.round(
+          <div class="temperature"><span class="temp-upcoming-day">${Math.round(
               forecastDay.temp.day
-          )}</span> | <span
-              class="temp-upcoming-min">${Math.round(
+          )}°C</span> | <span
+              class="temp-upcoming-night"><i class="bi bi-moon"></i>${Math.round(
                   forecastDay.temp.night
-              )}</span></div></div>`;
+              )}°C</span></div></div>`;
         }
     });
 
@@ -134,21 +87,26 @@ getForecast = (coordinates) => {
 };
 
 function showCityWeather(response) {
+    console.log(response.data);
     let cityNow = document.querySelector("#current-city");
     cityNow.innerHTML = response.data.name;
+    let countryNow = document.querySelector("#country");
+    countryNow.innerHTML = `, ${response.data.sys.country}`;
+
     celsiusTemperature = response.data.main.temp;
     let temp = Math.round(celsiusTemperature);
     let tempNow = document.querySelector("#temperature-now");
     tempNow.innerHTML = ` ${temp}`;
     tempNow.classList.add("temp-now");
-
     document.querySelector("#max").innerHTML = Math.round(
         response.data.main.temp_max
     );
     document.querySelector("#min").innerHTML = Math.round(
         response.data.main.temp_min
     );
+
     document.querySelector("#wind").innerHTML = response.data.wind.speed;
+
     document.querySelector("#humidity").innerHTML = response.data.main.humidity;
 
     document.querySelector("#description").innerHTML =
@@ -157,6 +115,7 @@ function showCityWeather(response) {
     document.querySelector("#time-now").innerHTML = formatHour(
         response.data.dt * 1000
     );
+
     document.querySelector("#day-date").innerHTML = formatDate(
         response.data.dt * 1000
     );
@@ -170,8 +129,6 @@ function showCityWeather(response) {
     iconElement.classList.add("weather-today-icon");
     iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
 
-    //sunrise and sunset to be improved!!
-
     let sunArr = [response.data.sys.sunrise, response.data.sys.sunset];
 
     sunArr.forEach(function (sunMovement, index) {
@@ -184,14 +141,11 @@ function showCityWeather(response) {
         if (minutes < 10) {
             minutes = `0${minutes}`;
         }
-
         if (index < 1) {
-            console.log(hours);
             document.querySelector("#sunrise").innerHTML =
                 hours + ":" + minutes;
         }
         if (index > 0) {
-            console.log(hours);
             document.querySelector("#sunset").innerHTML = hours + ":" + minutes;
         }
     });
