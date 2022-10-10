@@ -171,29 +171,30 @@ function showCityWeather(response) {
     iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
 
     //sunrise and sunset to be improved!!
-    let unix1_timestamp = response.data.sys.sunrise;
-    let date1 = new Date(unix1_timestamp * 1000);
-    let hours1 = date1.getHours();
-    if (hours1 < 10) {
-        hours1 = `0${hours1}`;
-    }
-    let minutes1 = date1.getMinutes();
-    if (minutes1 < 10) {
-        minutes1 = `0${minutes1}`;
-    }
-    document.querySelector("#sunrise").innerHTML = hours1 + ":" + minutes1;
 
-    let unix2_timestamp = response.data.sys.sunset;
-    let date2 = new Date(unix2_timestamp * 1000);
-    let hours2 = date2.getHours();
-    if (hours2 < 10) {
-        hours2 = `0${hours2}`;
-    }
-    let minutes2 = date2.getMinutes();
-    if (minutes2 < 10) {
-        minutes2 = `0${minutes2}`;
-    }
-    document.querySelector("#sunset").innerHTML = hours2 + ":" + minutes2;
+    let sunArr = [response.data.sys.sunrise, response.data.sys.sunset];
+
+    sunArr.forEach(function (sunMovement, index) {
+        let date = new Date(sunMovement * 1000);
+        let hours = date.getHours();
+        if (hours < 10) {
+            hours = `0${hours}`;
+        }
+        let minutes = date.getMinutes();
+        if (minutes < 10) {
+            minutes = `0${minutes}`;
+        }
+
+        if (index < 1) {
+            console.log(hours);
+            document.querySelector("#sunrise").innerHTML =
+                hours + ":" + minutes;
+        }
+        if (index > 0) {
+            console.log(hours);
+            document.querySelector("#sunset").innerHTML = hours + ":" + minutes;
+        }
+    });
 
     getForecast(response.data.coord);
 }
