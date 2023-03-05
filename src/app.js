@@ -167,8 +167,8 @@ function handleSubmit(event) {
 
 //current location
 function myPosition(position) {
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
 
     let apiKey = "e80dc1bacc0ef8618621e6997e2afedc";
     let apiUrl =
